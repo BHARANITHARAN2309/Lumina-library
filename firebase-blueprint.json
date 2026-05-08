@@ -1,0 +1,43 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile information",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "lastLogin": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "email"]
+    },
+    "ReadingHistory": {
+      "title": "Reading History",
+      "description": "A record of a book being read by a user",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "bookId": { "type": "string" },
+        "title": { "type": "string" },
+        "author": { "type": "string" },
+        "coverUrl": { "type": "string" },
+        "chapters": { "type": "array", "items": { "type": "string" } },
+        "currentChapterIndex": { "type": "integer" },
+        "lastRead": { "type": "string", "format": "date-time" },
+        "genre": { "type": "string" }
+      },
+      "required": ["userId", "bookId", "title", "chapters"]
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profile data"
+    },
+    "/readingHistory/{historyId}": {
+      "schema": "ReadingHistory",
+      "description": "User's reading progress per book"
+    }
+  }
+}

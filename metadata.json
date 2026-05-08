@@ -1,0 +1,5 @@
+{
+  "name": "Lumina Library",
+  "description": "Discover, read, and listen to your favorite stories with AI-powered narration.",
+  "requestFramePermissions": ["microphone"]
+}
